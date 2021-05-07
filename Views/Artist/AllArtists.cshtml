@@ -1,0 +1,42 @@
+﻿@model ICollection<MusicWorld.Models.ArtistViewModel>
+@*if user is admin*@
+<a class="CreateButton" asp-area="" asp-controller="Artist" asp-action="CreateArtist">+ Create Artist</a>
+
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Artist Name
+            </th>
+            <th>
+                Photo
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PhotoUrl)
+            </td>
+            <td>
+                <a asp-controller="Artist" asp-action="EditArtist" asp-route-artistName="@item.Name">Edit Artist</a>
+            </td>
+
+            <td>
+                <a asp-controller="Artist" asp-action="DeleteArtist" asp-route-artistName="@item.Name">Delete</a>
+            </td>
+            <td>
+                <a asp-controller="Artist" asp-action="DetailsArtist" asp-route-artistName="@item.Name">Details</a>
+            </td>
+        </tr>
+        }
+    </tbody>
+</table>

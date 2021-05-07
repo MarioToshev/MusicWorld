@@ -1,0 +1,27 @@
+﻿@model MusicWorld.Models.SongViewModel
+
+@{
+    ViewData["Title"] = "Create a album";
+}
+<h1 class="mainColor">Add a Song</h1>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-controller="Song" asp-action="CreateSong" method="post" enctype="multipart/form-data">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Name" class="control-label">Name</label>
+                <input asp-for="Name" class="titleInput" />
+                <span asp-validation-for="Name" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Duration" class="control-label">Duration</label>
+                <input asp-for="Duration" class="date" />
+                <span asp-validation-for="Duration" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>

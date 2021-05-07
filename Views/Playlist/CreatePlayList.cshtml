@@ -1,0 +1,23 @@
+﻿@using MusicWorld.Models
+@model ICollection<SongViewModel>
+@{
+    ViewData["Title"] = "Create a album";
+}
+<h1 class="mainColor">Add an Album</h1>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+            <div class="form-group">
+                <select>
+                    @foreach (var song in Model)
+                    {
+                        <option value="0">@song.Name</option>
+
+                    }
+                </select>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+    </div>
+</div>

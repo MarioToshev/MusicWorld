@@ -1,0 +1,59 @@
+﻿@model MusicWorld.Models.ArtistViewModel
+
+<h1>@Model.Name</h1>
+<p></p>
+
+<div>
+    <h5><b>Description:</b></h5>
+    <p>@Model.Description</p>
+</div>
+<a asp-controller="Album" asp-action="CreateAlbum" asp-route-artistName="@Model.Name">Create Album</a>
+
+<h5><b>Albums:</b></h5>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Album Name
+            </th>
+            <th>
+         
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @if (Model.Albums.Count > 0)
+        {
+            @foreach (var album in Model.Albums)
+            {
+                <tr>
+                    <td>
+                        @album.Name
+                    </td>
+                    <td>
+                        @album.DayOfCreation
+                    </td>
+                    <td>
+                        <a asp-controller="Album" asp-action="EditAlbum" asp-route-artistName="@album.Name">Edit</a>
+                    </td>
+
+                    <td>
+                        <a asp-controller="Album" asp-action="DeleteAlbum" asp-route-artistName="@album.Name">Delete</a>
+                    </td>
+                    <td>
+                        <a asp-controller="Album" asp-action="DetailsAlbum" asp-route-artistName="@album.Name">Details</a>
+                    </td>
+                </tr>
+
+
+            }
+        }
+        else
+        {
+            <p>There are no current songs</p>
+        }
+
+    </tbody>
+</table>
+

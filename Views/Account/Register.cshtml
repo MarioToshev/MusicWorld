@@ -1,0 +1,41 @@
+﻿@model MusicWorld.Models.Account.RegisterViewModel
+@{
+    ViewData["Title"] = "Register";
+}
+
+<div class="row">
+    <div class="col-md-12 colorAqua">
+        <form method="post" asp-action="Register" asp-controller="Account">
+            <center>
+                <h1 class="mainColor">Register</h1>
+            </center>
+            <hr />
+            <center>
+                <div class="form-group">
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                    <label asp-for="@Model.UserName"></label>
+                    <input asp-for="@Model.UserName" class="form-control" />
+                    <span asp-validation-for="@Model.UserName" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="@Model.Password"></label>
+                    <input asp-for="@Model.Password" class="form-control" />
+                    <span asp-validation-for="@Model.Password" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label>First Name</label>
+                    <input asp-for="@Model.FirstName" class="form-control" />
+                    <span asp-validation-for="@Model.FirstName" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label>Last Name</label>
+                    <textarea asp-for="@Model.LastName" class="form-control"> </textarea>
+                    <span asp-validation-for="@Model.LastName" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <button type="submit" class="btn btn-green">Register</button>
+                </div>
+            </center>
+        </form>
+    </div>
+</div>
